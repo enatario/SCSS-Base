@@ -9,8 +9,8 @@ The `.scss` files are fairly agnostic with some recommendations here and there. 
 With that said, here's some further information and recommendations based on my experience:
 
 
-### application.scss
-This is your vehicle to import all of your other [partials](https://sass-lang.com/guide#topic-4). This is the file that will be compiled into CSS with whatever tool you're using for that. `application` is a fairly generic name, but it can be renamed to whatever fits your project, just as long as it's recognizable. I've named this file `main.scss` and `config.scss` in other projects.
+### app.scss
+This is your vehicle to import all of your other [partials](https://sass-lang.com/guide#topic-4). This is the file that will be compiled into CSS with whatever tool you're using for that. `app` is a fairly generic name, but it can be renamed to whatever fits your project, just as long as it's recognizable. I've named this file `main.scss` and `config.scss` in other projects.
 
 
 #### File order
