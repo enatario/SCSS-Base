@@ -11,15 +11,6 @@ svg {
   display: block;
 
   @media screen and (-ms-high-contrast: active) {
-    $_accessible-blue: #0074d9;
-    fill: $_accessible-blue;
-  }
-
-  @media screen and (-ms-high-contrast: black-on-white) {
-    fill: $color-offblack;
-  }
-
-  @media screen and (-ms-high-contrast: white-on-black) {
-    fill: $color-offwhite;
+    fill: windowText;
   }
 }
