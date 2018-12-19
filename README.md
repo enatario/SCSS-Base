@@ -17,8 +17,8 @@ This is your vehicle to import all of your other [partials](https://sass-lang.co
 Because CSS *cascades* the `@import` order will matter.
 - Resets go at the top to provide a clean slate for your layout code. Putting it at the bottom might override some of your custom styles :(.
 - Next are base files and any libraries/frameworks that your files or base might be dependent on.
- - Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `Globals` instead of `Base`).
- - Vendor libraries that provide straight-up classes like Bootstrap can likely go anywhere in your imports if no other files need to `@extend` or you're not using any provided `@mixins` or `@functions`.
+  - Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `Globals` instead of `Base`).
+  - Vendor libraries that provide straight-up classes like Bootstrap can likely go anywhere in your imports if no other files need to `@extend` or you're not using any provided `@mixins` or `@functions`.
 - Add your utility files next. These are files that have isolated classes that can be added to any HTML element and are usually fairly agnostic (e.g. `.u-padding-left--large` gives `50px` of left padding to *any* element). Utility classes can also go at the end of your structure here, but I find it more readable here.
 - Lastly is your modules.
   - This is a catch-all of `@import`s. But I'd encourage you to break out more aptly-named folders if you're working on a particularly large project with lots of elements to style or a project that will need to scale. If it's taking you longer than a few seconds to read through the list of `@import`s in your list, it may be time to think about grouping some files into folders and having a file to import those other files in that folder (much like `_base.scss`).
