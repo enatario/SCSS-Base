@@ -1,0 +1,10 @@
+.skip-to-main {
+  @include hide-visually;
+
+  &:active,
+  &:focus {
+    @include hide-visually("unhide");
+    position: absolute;
+    z-index: get-z-index("layout");
+  }
+}
