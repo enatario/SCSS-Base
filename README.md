@@ -17,12 +17,14 @@ This is your vehicle to import all of your other [partials](https://sass-lang.co
 Because CSS *cascades* the `@import` order will matter.
 - Resets go at the top to provide a clean slate for your layout code. Putting it at the bottom might override some of your custom styles :(.
 - Next are base files and any libraries/frameworks that your files or base might be dependent on.
-  - Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `Globals` instead of `Base`).
+  - Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `globals` instead of `base`).
   - Vendor libraries that provide straight-up classes like Bootstrap can likely go anywhere in your imports if no other files need to `@extend` or you're not using any provided `@mixins` or `@functions`.
 - Add your utility files next. These are files that have isolated classes that can be added to any HTML element and are usually fairly agnostic (e.g. `.u-padding-left--large` gives `50px` of left padding to *any* element). Utility classes can also go at the end of your structure here, but I find it more readable here.
 - Lastly is your modules.
   - This is a catch-all of `@import`s. But I'd encourage you to break out more aptly-named folders if you're working on a particularly large project with lots of elements to style or a project that will need to scale. If it's taking you longer than a few seconds to read through the list of `@import`s in your list, it may be time to think about grouping some files into folders and having a file to import those other files in that folder (much like `_base.scss`).
   - Keep the `@import`s in alphabetic order for readability
+
+***
 
 ### Resets
 - I use [`normalize`](http://nicolasgallagher.com/about-normalize-css/), but some folks use [`reset`](https://meyerweb.com/eric/tools/css/reset/), and some folks don't use a reset at all!
@@ -34,6 +36,8 @@ Because CSS *cascades* the `@import` order will matter.
 You'll need to [install it](https://github.com/thoughtbot/bourbon#installation) in some manner (gem, npm, bower, etc) and the import naming might differ depending on what you use.
 
 **NOTE:** The `_skip-nav` utility uses a Bourbon mixin, so if you're not using this library but still want to use this utility, you'll need to write out the CSS fully.
+
+***
 
 ### Base
 These are the global layouts, utilities, mixins, and variables for your project.
@@ -75,10 +79,12 @@ This is a list of variables for a handful of unicode characters that are used fa
 This is a base file for all variables. There are a lot of variables already defined, but this is just mean to be a starting point that can work for many projects. Edit and add to this depending on your project's needs.
 - I find the easiest naming convention for variables uses a modified [BEM](http://getbem.com/introduction/) approach: `block`-`modifier`. So instead of using `$blue` and `$green`, you would define those colors as `$color-blue` and `$color-green`. This keeps variables predictable and readable.
 
+***
+
 ### Utilities
 Utilities are files that have isolated classes that can be added to any HTML element and are usually fairly agnostic.
 - Some utility files only have one class declaration, but that's totally fine -- being able to scan and find your utility is better than searching through a bulky file.
-- I've seen many people define their utility classes by prepending them with a `u-` (e.g. `u-padding-left`). I haven't done that here because most of my projects aren't so large that I end up with a lot of utility classes, but if you find that you have a lot of these classes or need to scale to that, it might be a good practice to put in place!
+- I've seen many people define their utility classes by prepending them with a `u-` (e.g. `.u-padding-left`). I haven't done that here because most of my projects aren't so large that I end up with a lot of utility classes, but if you find that you have a lot of these classes or need to scale to that, it might be a good practice to put in place!
 
 ### `_utilities.scss`
 Much like `_base.scss`, this serves as a way to import all the files within this folder.
@@ -86,6 +92,8 @@ Much like `_base.scss`, this serves as a way to import all the files within this
 
 ### `_skip-nav.scss`
 A class that can be put on a [skip nav link](https://webaim.org/techniques/skipnav/). This is the bare-bones of it and styling can be added to the focus state.
+
+***
 
 ### Modules
 Any custom-defined modules go in here. Modules is a catch-all name and if your project is large or you're just very organized, you may want to define more folders with relevant files, or re-name `modules` to something else. 
