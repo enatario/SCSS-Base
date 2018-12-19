@@ -9,12 +9,12 @@ The `.scss` files are fairly agnostic with some recommendations here and there. 
 With that said, here's some further information and recommendations based on my experience:
 
 
-### app.scss
+### `app.scss`
 This is your vehicle to import all of your other [partials](https://sass-lang.com/guide#topic-4). This is the file that will be compiled into CSS with whatever tool you're using for that. `app` is a fairly generic name, but it can be renamed to whatever fits your project, just as long as it's recognizable. I've named this file `main.scss` and `config.scss` in other projects.
 
 
 #### File order
-Because CSS *cascades* the `@import` order will matter.
+Because CSS *cascades*, the `@import` order will matter.
 - [Resets](#resets) go at the top to provide a clean slate for your layout code. Putting it at the bottom might override some of your custom styles :(.
 - Next are [base](#base) files and any [libraries/frameworks](#bourbon) that your files or base might be dependent on.
   - Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `globals` instead of `base`).
@@ -46,16 +46,18 @@ These are the global layouts, utilities, mixins, and variables for your project.
 
 #### `_base.scss`
 `_base.scss` serves as a way to import all the files within that folder. Much like, `app.scss` there is a reason for the order of the files due to the nature of the cascade and dependencies within this folder.
-- `_helpers`, `_variables` and `_fonts` should remain in that order
-- Everything underneath that chunk can go in alphabetic order
+- `_helpers`, `_variables` and `_fonts` should remain in that order.
+- Everything underneath that chunk can go in alphabetic order.
 - If you add any files that any other file in that folder is dependent on (i.e. uses a mixin or an extend from it), then put it within the top chunk of files.
 
 #### `_fonts.scss`
-Throw your font imports in here! I use bourbon mixins for the import (the file types are defined in `_variables.scss).` If you're using google font imports or other files that aren't local to your asset folder, you can define them here.
+Throw your font imports in here! I use a [bourbon mixin](https://www.bourbon.io/docs/latest/#font-face) for the import (the file types are defined in `_variables.scss).` If you're using google font imports or other files that aren't local to your asset folder, you can define them here.
 - Wondering what `font-display` is? [Learn about it here!](https://css-tricks.com/font-display-masses/)
 
 #### `_forms.scss`
-Any global form styling should go here. Currently there's only some styling on `select`s and `button`s to add a pointer cursor to them because I always have to add those in!
+Any global form styling should go here.
+- Currently there's only some styling on `select`s and `button`s to add a pointer cursor to them because I always have to add those in!
+- I find it's cleanest to keep definitions to *tags* instead of *classes*
 
 #### `_helpers.scss`
 A variety of mixins and functions I've pulled from other sources and written myself that I've found useful.
@@ -65,6 +67,7 @@ This file is pretty open to intepretation (which is why it's left blank), but of
 
 #### `_lists.scss`
 Any global styles or resets for `ul`s, `ol`s, `li`s, `dd`s, and `dt`s.
+- I find it's cleanest to keep definitions to *tags* instead of *classes*
 
 #### `_media.scss`
 This includes a few resets for how image media is displayed as well as [some accessibility additions for SVGs](https://css-tricks.com/accessible-svgs-high-contrast-mode/).
@@ -72,7 +75,7 @@ This includes a few resets for how image media is displayed as well as [some acc
 #### `_typography.scss`
 This file is for global typographic definitions. Currently this has some base definitions for the `body`, but can be filled out more to define `h1`s, `h2`s, `p`s, or any tag that serves text.
 - I find it's cleanest to keep definitions to *tags* instead of *classes*
-- Remember these are *globals* so try to keep things as low-fi as possible so you're not stuck overriding a lot in your module class declarations
+- Remember these are *globals* so try to keep things as low-fi as possible so you're not stuck overriding a lot in your module class declarations.
 
 #### `_unicode.scss`
 This is a list of variables for a handful of unicode characters that are used fairly often.
@@ -85,7 +88,7 @@ This is a base file for all variables. There are a lot of variables already defi
 
 ### Utilities
 Utilities are files that have isolated classes that can be added to any HTML element and are usually fairly agnostic.
-- Some utility files only have one class declaration, but that's totally fine -- being able to scan and find your utility is better than searching through a bulky file.
+- Some utility files only have one class declaration (e.g. `_skip-nav.scss` only has 1 class in that file), but that's totally fine -- being able to scan and find your utility is better than searching through a bulky file.
 - I've seen many people define their utility classes by prepending them with a `u-` (e.g. `.u-padding-left`). I haven't done that here because most of my projects aren't so large that I end up with a lot of utility classes, but if you find that you have a lot of these classes or need to scale to that, it might be a good practice to put in place!
 
 ### `_utilities.scss`
@@ -93,7 +96,7 @@ Much like `_base.scss`, this serves as a way to import all the files within this
 - File imports should be in alphabetic order
 
 ### `_skip-nav.scss`
-A class that can be put on a [skip nav link](https://webaim.org/techniques/skipnav/). This is the bare-bones of it and styling can be added to the focus state.
+A class that can be put on a [skip nav link](https://webaim.org/techniques/skipnav/). This is the bare-bones of it and styling can be added to the *focus* state.
 
 ***
 
