@@ -15,12 +15,12 @@ This is your vehicle to import all of your other [partials](https://sass-lang.co
 
 #### File order
 Because CSS *cascades* the `@import` order will matter.
-- Resets go at the top to provide a clean slate for your layout code. Putting it at the bottom might override some of your custom styles :(.
-- Next are base files and any libraries/frameworks that your files or base might be dependent on.
+- [Resets](#resets) go at the top to provide a clean slate for your layout code. Putting it at the bottom might override some of your custom styles :(.
+- Next are [base](#base) files and any [libraries/frameworks](#bourbon) that your files or base might be dependent on.
   - Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `globals` instead of `base`).
   - Vendor libraries that provide straight-up classes like Bootstrap can likely go anywhere in your imports if no other files need to `@extend` or you're not using any provided `@mixins` or `@functions`.
-- Add your utility files next. These are files that have isolated classes that can be added to any HTML element and are usually fairly agnostic (e.g. `.u-padding-left--large` gives `50px` of left padding to *any* element). Utility classes can also go at the end of your structure here, but I find it more readable here.
-- Lastly is your modules.
+- Add your [utility](#utilities) files next. These are files that have isolated classes that can be added to any HTML element and are usually fairly agnostic (e.g. `.u-padding-left--large` gives `50px` of left padding to *any* element). Utility classes can also go at the end of your structure here, but I find it more readable here.
+- Lastly are your [modules](#modules).
   - This is a catch-all of `@import`s. But I'd encourage you to break out more aptly-named folders if you're working on a particularly large project with lots of elements to style or a project that will need to scale. If it's taking you longer than a few seconds to read through the list of `@import`s in your list, it may be time to think about grouping some files into folders and having a file to import those other files in that folder (much like `_base.scss`).
   - Keep the `@import`s in alphabetic order for readability
 
@@ -29,6 +29,8 @@ Because CSS *cascades* the `@import` order will matter.
 ### Resets
 - I use [`normalize`](http://nicolasgallagher.com/about-normalize-css/), but some folks use [`reset`](https://meyerweb.com/eric/tools/css/reset/), and some folks don't use a reset at all!
 - `layout.scss` is to provide some [box-sizing](https://css-tricks.com/box-sizing/) declarations to all elements. This appears in some resets, but I like to separate mine out.
+
+***
 
 ### Bourbon
 [Bourbon](https://www.bourbon.io/) is a pretty great lightweight tool full of handy mixins and functions for your project. I've used it on most of my projects and I've found it very helpful in cutting down on the amount of SCSS I'm writing (readability FTW!).
