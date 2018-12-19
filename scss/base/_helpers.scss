@@ -1,4 +1,10 @@
 // Transform pixels to REMs
+// ------------------------------------------------------
+// Use in context:
+// .foo {
+//   font-size: rem(12px);
+// }
+//
 @function rem($pixels, $context: $font-size-global) {
   @if (unitless($pixels)) {
     $pixels: $pixels * 1px;
@@ -10,6 +16,16 @@
 }
 
 // Breakpoints
+// ------------------------------------------------------
+// *Note: See _variables.scss for breakpoint definitions
+// Use in context:
+// .foo {
+//   color: blue;
+//   @include breakpoint("small") {
+//     color: green;
+//   }
+// }
+//
 @mixin breakpoint($bp, $rule: min-width) {
   @if map-has-key($breakpoints, $bp) {
     @media screen and (#{$rule}: map-get($breakpoints, $bp)) {
@@ -21,12 +37,25 @@
 }
 
 // Z-indexes (thanks Eric Bailey)
+// ------------------------------------------------------
+// *Note: See _variables.scss for z-index definitions
+// Use in context:
+// .foo {
+//   z-index: get-z-index("basement");
+// }
+//
 @function get-z-index($index) {
   @return map-get($z-index, $index);
 }
 
-// Vertically and horizontally align"
-// set value on $justify to change horizontal alignment
+// Vertically and horizontally align
+// ------------------------------------------------------
+// *Note: set value on $justify to change horizontal alignment
+// Use in context:
+// .foo {
+//   @include x-y-centered;
+// }
+//
 @mixin x-y-centered($display: flex, $justify: center) {
   align-items: center;
   display: $display;
