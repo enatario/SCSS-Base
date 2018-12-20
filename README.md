@@ -19,10 +19,9 @@ A starting point for SCSS files and file architecture for any web project.
 ├── reset
 │   ├── _layout.scss
 │   └── _normalize.scss
-├── utilities
-│   ├── _skip-nav.scss
-│   └── _utilities.scss
-└── vendor
+└── utilities
+    ├── _skip-nav.scss
+    └── _utilities.scss
 ```
 
 ## Overview
