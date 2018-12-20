@@ -186,8 +186,8 @@ Here are a few examples of module lists in `app.scss`:
 @import "user/messaging";
 
 // Landing page
-@import "landing/cta";
 @import "landing/carousel";
+@import "landing/cta";
 ...
 ```
 **Complex list of files and folders by use within the layout**
