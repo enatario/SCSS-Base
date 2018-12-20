@@ -1,7 +1,31 @@
 # SCSS Base
 A starting point for SCSS files and file architecture for any web project.
 
-## An overview
+## File structure
+```
+├── app.scss
+├── base
+│   ├── _base.scss
+│   ├── _fonts.scss
+│   ├── _forms.scss
+│   ├── _helpers.scss
+│   ├── _layout.scss
+│   ├── _lists.scss
+│   ├── _media.scss
+│   ├── _typography.scss
+│   ├── _unicode.scss
+│   └── _variables.scss
+├── modules
+├── reset
+│   ├── _layout.scss
+│   └── _normalize.scss
+├── utilities
+│   ├── _skip-nav.scss
+│   └── _utilities.scss
+└── vendor
+```
+
+## Overview
 Use this as a springboard for your own projects so you're not mired in the initial setup of your SCSS files. File setup can take a lot of time and be quite intimidating if you're not sure where to start. My setup is not the paragon of SCSS file architecture (that doesn't exist), but I'm hoping it's a helpful tool to start you off so you can define a structure that fits your needs.
 
 The `.scss` files are fairly agnostic with some recommendations here and there. The `_variables.scss` probably has the most "stuff" already built into it. This is **not a boilerplate**; edit to your liking, move things around, delete anything -- do what works for *you*.
@@ -15,14 +39,34 @@ This is your vehicle to import all of your other [partials](https://sass-lang.co
 
 #### File order
 Because CSS *cascades*, the `@import` order will matter.
-- [Resets](#resets) go at the top to provide a clean slate for your layout code. Putting it at the bottom might override some of your custom styles :(.
-- Next are [base](#base) files and any [libraries/frameworks](#bourbon) that your files or base might be dependent on.
-  - Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `globals` instead of `base`).
-  - Vendor libraries that provide straight-up classes like Bootstrap can likely go anywhere in your imports if no other files need to `@extend` or you're not using any provided `@mixins` or `@functions`.
-- Add your [utility](#utilities) files next. These are files that have isolated classes that can be added to any HTML element and are usually fairly agnostic (e.g. `.u-padding-left--large` gives `50px` of left padding to *any* element). Utility classes can also go at the end of your structure here, but I find it more readable here.
-- Lastly are your [modules](#modules).
-  - This is a catch-all of `@import`s. But I'd encourage you to break out more aptly-named folders if you're working on a particularly large project with lots of elements to style or a project that will need to scale. If it's taking you longer than a few seconds to read through the list of `@import`s in your list, it may be time to think about grouping some files into folders and having a file to import those other files in that folder (much like `_base.scss`).
-  - Keep the `@import`s in alphabetic order for readability
+```scss
+// Resets
+@import "reset/normalize";
+@import "reset/layout";
+
+// Dependencies
+@import "bourbon";
+
+// Base
+@import "base/base";
+
+// Utilities
+@import "utilities/utilities";
+
+// Vendor
+// e.g. @import "vendor/bootstrap";
+
+// Modules
+// e.g. @import "modules/hero-card";
+```
+- **[Resets](#resets)** go at the top to provide a clean slate for your layout code. Putting it at the bottom might override some of your custom styles :(.
+- **[Dependencies](#dependencies)** are any external library or framework that your custom SCSS may be couple with. This could be code that provides mixins, functions, variables, etc.
+  - In this file system, I use [Bourbon](https://www.bourbon.io/).
+- **[Base](#base)** files that your files or base might be dependent on. Base files include many global classes, helpers, and variables you'll need for your project (I've also seen this called `globals` instead of `base`).
+- **[Utility](#utilities)** files have isolated classes that can be added to any HTML element and are usually fairly agnostic (e.g. `.u-padding-left--large` gives `50px` of left padding to *any* element). Utility classes can also go at the end of your structure, but I find it more readable here.
+- **[Vendor](#vendors)** files are libraries that your custom SCSS is *not* dependent on. These libraries are usually straight imports so you can use their classes in your HTML. [Bootstrap](https://getbootstrap.com/) is an example of this.
+- **[Modules](#modules)** are a catch-all of `@import`s. But I'd encourage you to break out more aptly-named folders if you're working on a particularly large project with lots of elements to style or a project that will need to scale. If it's taking you longer than a few seconds to read through the list of `@import`s in your list, it may be time to think about grouping some files into folders and having a file to import those other files in that folder (much like `_base.scss`).
+  - Keep the `@import`s in **alphabetic order** for readability
 
 ***
 
@@ -32,8 +76,11 @@ Because CSS *cascades*, the `@import` order will matter.
 
 ***
 
-### Bourbon
-[Bourbon](https://www.bourbon.io/) is a pretty great lightweight tool full of handy mixins and functions for your project. I've used it on most of my projects and I've found it very helpful in cutting down on the amount of SCSS I'm writing (readability FTW!).
+### Dependencies
+It can be incredibly helpful to use SCSS dependencies, especially if you want to [DRY](https://medium.com/backticks-tildes/keeping-your-scss-dry-5211a99be15c) out your scss. While your code may require writing some [custom helpers](#_helpersscss), you may find a 3rd party vendor has already done the heavy-lifting for you. See what works for you, but don't fill this space with *too many* dependencies.
+
+#### [Bourbon](https://www.bourbon.io/)
+This is a pretty great lightweight tool full of handy mixins and functions for your project. I've used it on most of my projects and I've found it very helpful in cutting down on the amount of SCSS I'm writing (readability FTW!).
 
 You'll need to [install it](https://github.com/thoughtbot/bourbon#installation) in some manner (gem, npm, bower, etc) and the import naming might differ depending on what you use.
 
@@ -97,6 +144,12 @@ Much like `_base.scss`, this serves as a way to import all the files within this
 
 ### `_skip-nav.scss`
 A class that can be put on a [skip nav link](https://webaim.org/techniques/skipnav/). This is the bare-bones of it and styling can be added to the *focus* state.
+
+***
+
+### Vendors
+Much like the dependencies, this is a 3rd party installation, either through a package or downloaded locally to your machine. These files should **not** provide mixins, functions, or any helpers for your custom SCSS. They will likely be a straight import that allows you to use its classes in your HTML.
+- If you're using any vendor code locally in your files (i.e. not through a package), you should make a `vendor` folder and call files from there in your `app.scss`.
 
 ***
 
