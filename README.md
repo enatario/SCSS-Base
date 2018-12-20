@@ -155,3 +155,61 @@ Much like the dependencies, this is a 3rd party installation, either through a p
 ### Modules
 Any custom-defined modules go in here. Modules is a catch-all name and if your project is large or you're just very organized, you may want to define more folders with relevant files, or re-name `modules` to something else. 
 - If you end up with multiple folders (e.g instead of `modules` you may have `hero` and `articles`), it may make sense to have a file within these folders to import all the files within so that `app.scss` stays readable.
+
+Here are a few examples of module lists in `app.scss`:
+
+**Simple list of files**
+```scss
+...
+// Modules
+@import "modules/about";
+@import "modules/body";
+@import "modules/content";
+@import "modules/events";
+@import "modules/hero";
+@import "modules/footer";
+@import "modules/nav";
+```
+
+**Complex list of files and folders by type of module**
+```scss
+...
+// Admin
+@import "admin/choice-card";
+@import "admin/dropdown";
+@import "admin/nav-tools";
+@import "admin/options";
+
+// User
+@import "user/hero";
+@import "user/login-form";
+@import "user/messaging";
+
+// Landing page
+@import "landing/cta";
+@import "landing/carousel";
+...
+```
+**Complex list of files and folders by use**
+```scss
+...
+// Template
+@import "template/footer";
+@import "template/header";
+@import "template/menu";
+
+// Layout
+@import "layout/about";
+@import "layout/article";
+@import "layout/media-layout";
+@import "layout/topic";
+
+// Components
+@import "components/annotations";
+@import "components/aside-list";
+@import "components/audio";
+@import "components/discuss-cta";
+@import "components/hero";
+@import "components/newsletter";
+...
+```
