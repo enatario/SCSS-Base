@@ -190,7 +190,7 @@ Here are a few examples of module lists in `app.scss`:
 @import "landing/carousel";
 ...
 ```
-**Complex list of files and folders by use**
+**Complex list of files and folders by use within the layout**
 ```scss
 ...
 // Template
