@@ -97,7 +97,7 @@ These are the global layouts, utilities, mixins, and variables for your project.
 - If you add any files that any other file in that folder is dependent on (i.e. uses a mixin or an extend from it), then put it within the top chunk of files.
 
 #### `_fonts.scss`
-Throw your font imports in here! I use a [bourbon mixin](https://www.bourbon.io/docs/latest/#font-face) for the import (the file types are defined in `_variables.scss).` If you're using google font imports or other files that aren't local to your asset folder, you can define them here.
+Throw your font imports in here! I use a [bourbon mixin](https://www.bourbon.io/docs/latest/#font-face) for the import (the file types are defined in `_variables.scss`). If you're using google font imports or other files that aren't local to your asset folder, you can define them here.
 - Wondering what `font-display` is? [Learn about it here!](https://css-tricks.com/font-display-masses/)
 
 #### `_forms.scss`
@@ -127,7 +127,7 @@ This file is for global typographic definitions. Currently this has some base de
 This is a list of variables for a handful of unicode characters that are used fairly often.
 
 #### `_variables.scss`
-This is a base file for all variables. There are a lot of variables already defined, but this is just mean to be a starting point that can work for many projects. Edit and add to this depending on your project's needs.
+This is a base file for all variables. There are a lot of variables already defined, but this is just meant to be a starting point that can work for many projects. Edit and add to this depending on your project's needs.
 - I find the easiest naming convention for variables uses a modified [BEM](http://getbem.com/introduction/) approach: `block`-`modifier`. So instead of using `$blue` and `$green`, you would define those colors as `$color-blue` and `$color-green`. This keeps variables predictable and readable.
 
 ***
@@ -153,7 +153,7 @@ Much like the dependencies, this is a 3rd party installation, either through a p
 ***
 
 ### Modules
-Any custom-defined modules go in here. Modules is a catch-all name and if your project is large or you're just very organized, you may want to define more folders with relevant files, or re-name `modules` to something else. 
+Any custom-defined modules go in here. Modules is a catch-all name and if your project is large or you're just very organized, you may want to define more folders with relevant files, or re-name `modules` to something else.
 - If you end up with multiple folders (e.g instead of `modules` you may have `hero` and `articles`), it may make sense to have a file within these folders to import all the files within so that `app.scss` stays readable.
 
 Here are a few examples of module lists in `app.scss`:
