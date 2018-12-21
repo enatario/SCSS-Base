@@ -97,7 +97,7 @@ These are the global layouts, utilities, mixins, and variables for your project.
 - If you add any files that any other file in that folder is dependent on (i.e. uses a mixin or an extend from it), then put it within the top chunk of files.
 
 #### `_fonts.scss`
-Throw your font imports in here! I use a [bourbon mixin](https://www.bourbon.io/docs/latest/#font-face) for the import (the file types are defined in `_variables.scss).` If you're using google font imports or other files that aren't local to your asset folder, you can define them here.
+Throw your font imports in here! I use a [bourbon mixin](https://www.bourbon.io/docs/latest/#font-face) for the import (the file types are defined in `_variables.scss`). If you're using google font imports or other files that aren't local to your asset folder, you can define them here.
 - Wondering what `font-display` is? [Learn about it here!](https://css-tricks.com/font-display-masses/)
 
 #### `_forms.scss`
