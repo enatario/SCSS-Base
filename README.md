@@ -76,7 +76,7 @@ Because CSS *cascades*, the `@import` order will matter.
 ***
 
 ### Dependencies
-It can be incredibly helpful to use SCSS dependencies, especially if you want to [DRY](https://medium.com/backticks-tildes/keeping-your-scss-dry-5211a99be15c) out your scss. While your code may require writing some [custom helpers](#_helpersscss), you may find a 3rd party vendor has already done the heavy-lifting for you. See what works for you, but don't fill this space with *too many* dependencies.
+It can be incredibly helpful to use SCSS dependencies, especially if you want to [DRY](https://medium.com/backticks-tildes/keeping-your-scss-dry-5211a99be15c) out your scss. While your code may require writing some [custom helpers](#_helpersscss), you may find a 3rd party vendor has already done the heavy-lifting for you. These may provide mixins, functions, or any helpers for your custom SCSS. See what works for you, but don't fill this space with *too many* dependencies.
 
 #### [Bourbon](https://www.bourbon.io/)
 This is a pretty great lightweight tool full of handy mixins and functions for your project. I've used it on most of my projects and I've found it very helpful in cutting down on the amount of SCSS I'm writing (readability FTW!).
